@@ -1,0 +1,10 @@
+c:\users\артур\documents\visual studio 2013\Projects\Kosynka\Kosynka\bin\Debug\Kosynka.exe.config
+c:\users\артур\documents\visual studio 2013\Projects\Kosynka\Kosynka\bin\Debug\Kosynka.exe
+c:\users\артур\documents\visual studio 2013\Projects\Kosynka\Kosynka\bin\Debug\Kosynka.pdb
+c:\users\артур\documents\visual studio 2013\Projects\Kosynka\Kosynka\obj\Debug\Kosynka.Form1.resources
+c:\users\артур\documents\visual studio 2013\Projects\Kosynka\Kosynka\obj\Debug\Kosynka.Properties.Resources.resources
+c:\users\артур\documents\visual studio 2013\Projects\Kosynka\Kosynka\obj\Debug\Kosynka.csproj.GenerateResource.Cache
+c:\users\артур\documents\visual studio 2013\Projects\Kosynka\Kosynka\obj\Debug\Kosynka.exe
+c:\users\артур\documents\visual studio 2013\Projects\Kosynka\Kosynka\obj\Debug\Kosynka.pdb
+c:\users\артур\documents\visual studio 2013\Projects\Kosynka\Kosynka\obj\Debug\Kosynka.csprojResolveAssemblyReference.cache
+C:\Users\Артур\documents\visual studio 2013\Projects\Kosynka\Kosynka\obj\Debug\Kosynka.Form2.resources
