@@ -161,10 +161,12 @@
             // radioButton10
             // 
             this.radioButton10.AutoSize = true;
+            this.radioButton10.Checked = true;
             this.radioButton10.Location = new System.Drawing.Point(569, 220);
             this.radioButton10.Name = "radioButton10";
             this.radioButton10.Size = new System.Drawing.Size(14, 13);
             this.radioButton10.TabIndex = 9;
+            this.radioButton10.TabStop = true;
             this.radioButton10.UseVisualStyleBackColor = true;
             // 
             // button1
@@ -340,12 +342,10 @@
             // radioButton11
             // 
             this.radioButton11.AutoSize = true;
-            this.radioButton11.Checked = true;
             this.radioButton11.Location = new System.Drawing.Point(70, 410);
             this.radioButton11.Name = "radioButton11";
             this.radioButton11.Size = new System.Drawing.Size(14, 13);
             this.radioButton11.TabIndex = 26;
-            this.radioButton11.TabStop = true;
             this.radioButton11.UseVisualStyleBackColor = true;
             // 
             // radioButton12

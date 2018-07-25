@@ -15,6 +15,8 @@ namespace Kosynka
         public Form2()
         {
             InitializeComponent();
+
+            ((RadioButton)this.Controls["radioButton" + Data.numShirt]).Checked = true;
         }
 
         private void button1_Click(object sender, EventArgs e)

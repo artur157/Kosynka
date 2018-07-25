@@ -800,7 +800,7 @@ namespace Kosynka
             }
             else   // меняем координаты закономерно по кривой
             {
-                x -= 3;
+                x -= 3 + num;
                 y = func(x);
                 Invalidate();
             }

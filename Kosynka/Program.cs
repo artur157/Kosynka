@@ -22,6 +22,6 @@ namespace Kosynka
 
     static class Data
     {
-        public static int numShirt = 11;
+        public static int numShirt = 10;
     }
 }
