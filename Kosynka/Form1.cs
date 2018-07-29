@@ -808,74 +808,77 @@ namespace Kosynka
 
         private void отменитьХодToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            отменитьХодToolStripMenuItem.Enabled = false;
+            if (!dragging)
+            {
+                отменитьХодToolStripMenuItem.Enabled = false;
 
-            // если просто нажали на магазин
-            if (oldPlace == 12)
-            {
-                SubVariant();
-            }
-            else
-            {
-                // скрыть открытую карту из стека
-                if (oldPlace < 7 && needToClose)
+                // если просто нажали на магазин
+                if (oldPlace == 12)
                 {
-                    stacks[oldPlace][stacks[oldPlace].Count - 1].opened = false;
+                    SubVariant();
                 }
-
-                // переложить countRemember карт с newPlace на oldPlace
-
-                // I. переложить countRemember карт с newPlace на buffer
-
-                for (int i = 0; i < countRemember; i++)
+                else
                 {
-                    // сначала удаляем из нового места
-                    Card card;
-                    if (newPlace < 7)
+                    // скрыть открытую карту из стека
+                    if (oldPlace < 7 && needToClose)
                     {
-                        card = stacks[newPlace][stacks[newPlace].Count - 1];
-                        stacks[newPlace].RemoveAt(stacks[newPlace].Count - 1);
-                    }
-                    else
-                    {
-                        card = stacksReady[newPlace - 7][stacksReady[newPlace - 7].Count - 1];    // где тут выход за границы? 
-                        stacksReady[newPlace - 7].RemoveAt(stacksReady[newPlace - 7].Count - 1);
+                        stacks[oldPlace][stacks[oldPlace].Count - 1].opened = false;
                     }
 
-                    // затем в буфер
-                    buffer.Add(card);
-                }
+                    // переложить countRemember карт с newPlace на oldPlace
 
-                // II. переложить countRemember карт с buffer на oldPlace
+                    // I. переложить countRemember карт с newPlace на buffer
 
-                for (int i = 0; i < countRemember; i++)
-                {
-                    // сначала удаляем из буфера
-                    Card card = buffer[buffer.Count - 1];
-                    buffer.RemoveAt(buffer.Count - 1);
-
-                    // затем возвращаем в старое
-                    if (oldPlace < 11)    // если клали из стека или стекареди
+                    for (int i = 0; i < countRemember; i++)
                     {
-                        if (oldPlace < 7)
+                        // сначала удаляем из нового места
+                        Card card;
+                        if (newPlace < 7)
                         {
-                            stacks[oldPlace].Add(card);
+                            card = stacks[newPlace][stacks[newPlace].Count - 1];
+                            stacks[newPlace].RemoveAt(stacks[newPlace].Count - 1);
                         }
                         else
                         {
-                            stacksReady[oldPlace - 7].Add(card);
+                            card = stacksReady[newPlace - 7][stacksReady[newPlace - 7].Count - 1];    // где тут выход за границы? 
+                            stacksReady[newPlace - 7].RemoveAt(stacksReady[newPlace - 7].Count - 1);
+                        }
+
+                        // затем в буфер
+                        buffer.Add(card);
+                    }
+
+                    // II. переложить countRemember карт с buffer на oldPlace
+
+                    for (int i = 0; i < countRemember; i++)
+                    {
+                        // сначала удаляем из буфера
+                        Card card = buffer[buffer.Count - 1];
+                        buffer.RemoveAt(buffer.Count - 1);
+
+                        // затем возвращаем в старое
+                        if (oldPlace < 11)    // если клали из стека или стекареди
+                        {
+                            if (oldPlace < 7)
+                            {
+                                stacks[oldPlace].Add(card);
+                            }
+                            else
+                            {
+                                stacksReady[oldPlace - 7].Add(card);
+                            }
+                        }
+                        else    // клали из магазина... ну понятное дело тут карта одна
+                        {
+                            offer.Add(card);
+                            // теперь надо вернуть в rest
+                            rest[(variant - 1) * 3 + offer.Count - 1] = card;
                         }
                     }
-                    else    // клали из магазина... ну понятное дело тут карта одна
-                    {
-                        offer.Add(card);
-                        // теперь надо вернуть в rest
-                        rest[(variant - 1) * 3 + offer.Count - 1] = card;
-                    }
                 }
-            }
 
-            Invalidate();
+                Invalidate();
+            }
         }
 
         private void подсказкаToolStripMenuItem_Click(object sender, EventArgs e)
